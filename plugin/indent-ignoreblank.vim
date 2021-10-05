@@ -10,6 +10,12 @@ else
   let g:loaded_indent_ignoreblank = 'yes'
 endif
 
+let s:indent_ignore_blanks_filetypes = ['*']
+
+if exists('g:indent_ignore_blanks_filetypes')
+  let s:indent_ignore_blanks_filetypes = g:indent_ignore_blanks_filetypes
+endif
+
 function! IndentIgnoringBlanks(child) abort
   let lnum = v:lnum
   while v:lnum > 1 && getline(v:lnum-1) == ""
@@ -65,5 +71,5 @@ command! -bar IndentNormally
 
 augroup IndentIgnoringBlanks
   autocmd!
-  autocmd FileType * IndentIgnoringBlanks
+  execute 'autocmd FileType ' . join(s:indent_ignore_blanks_filetypes, ', ') . ' IndentIgnoringBlanks'
 augroup END

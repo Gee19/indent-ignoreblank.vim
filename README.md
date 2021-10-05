@@ -15,7 +15,8 @@ Plug 'Gee19/indent-ignoreblank.vim'
 ```
 
 ## Configuration
-- You can set a global variable in your vimrc to pass filetypes to this plugin (defaults to `['*']`)
+
+You can set a global variable in your vimrc to pass filetypes to this plugin (defaults to `['*']`)
 
 `let g:indent_ignore_blanks_filetypes = ['*.py', 'javascript']`
 
